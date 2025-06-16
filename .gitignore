@@ -1,0 +1,5 @@
+/sandbox
+/node_modules
+/.vscode
+/dist
+Thumbs.db
