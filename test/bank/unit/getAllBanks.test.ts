@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { getAllBanks } from '@src/modules/bank';
 import { Bank } from '@src/modules/bank/entities/Bank';
 import { ServerError } from '@src/shared/exceptions/ServerError';
@@ -24,7 +25,9 @@ describe('getAllBanks - unit', () => {
     const result = await getAllBanks();
     expect(result).toEqual(mockedBanks);
     expect(mockFetch).toHaveBeenCalledTimes(1);
-    expect(mockFetch).toHaveBeenCalledWith(expect.stringContaining('/banks/v1'));
+    expect(mockFetch).toHaveBeenCalledWith(expect.stringContaining('/banks/v1'), {
+      signal: expect.any(AbortSignal),
+    });
   });
 
   it('deve lançar erro se o fetch retornar status não-ok', async () => {
