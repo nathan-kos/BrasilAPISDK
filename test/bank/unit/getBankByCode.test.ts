@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Bank, getBankByCode } from '@src/index';
 import { ServerError } from '@src/shared/exceptions/ServerError';
+import { TimeoutError } from '@src/shared/exceptions/TimeOutError';
 import { describe, expect, it, vi } from 'vitest';
 
 describe('getBankByCode', () => {
@@ -22,7 +24,12 @@ describe('getBankByCode', () => {
 
     expect(result).toEqual(mockBank);
     expect(mockFetch).toHaveBeenCalledTimes(1);
-    expect(mockFetch).toHaveBeenCalledWith(expect.stringContaining('/banks/v1/999'));
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining('/banks/v1/999'),
+      expect.objectContaining({
+        signal: expect.any(AbortSignal),
+      }),
+    );
   });
 
   it('deve lançar erro se o código do banco não for encontrado', async () => {
@@ -37,7 +44,12 @@ describe('getBankByCode', () => {
 
     await expect(getBankByCode('NKS')).rejects.toThrow('Banco não encontrado');
     expect(mockFetch).toHaveBeenCalledTimes(1);
-    expect(mockFetch).toHaveBeenCalledWith(expect.stringContaining('/banks/v1/NKS'));
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining('/banks/v1/NKS'),
+      expect.objectContaining({
+        signal: expect.any(AbortSignal),
+      }),
+    );
   });
 
   it('deve lançar erro se ocorrer um problema na requisição', async () => {
@@ -47,6 +59,22 @@ describe('getBankByCode', () => {
 
     await expect(getBankByCode('999')).rejects.toBeInstanceOf(ServerError);
     expect(mockFetch).toHaveBeenCalledTimes(1);
-    expect(mockFetch).toHaveBeenCalledWith(expect.stringContaining('/banks/v1/999'));
+    expect(mockFetch).toHaveBeenCalledWith(
+      expect.stringContaining('/banks/v1/999'),
+      expect.objectContaining({
+        signal: expect.any(AbortSignal),
+      }),
+    );
+  });
+
+  it('deve lançar TimeoutError se o fetch for abortado', async () => {
+    const abortError = new Error('The user aborted a request.');
+    abortError.name = 'AbortError';
+
+    const mockFetch = vi.fn().mockRejectedValue(abortError);
+
+    global.fetch = mockFetch;
+
+    await expect(getBankByCode('999')).rejects.toBeInstanceOf(TimeoutError);
   });
 });
