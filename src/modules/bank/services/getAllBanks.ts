@@ -2,6 +2,7 @@ import { getBaseUrl, getTimeout } from '@src/shared/config/ApiConfig';
 import { AppError } from '@src/shared/exceptions/AppError';
 import { handleResponseError } from '@src/shared/exceptions/HandlerResponseError';
 import { ServerError } from '@src/shared/exceptions/ServerError';
+import { TimeoutError } from '@src/shared/exceptions/TimeOutError';
 import { Bank } from '../entities/Bank';
 
 async function getAllBanks(): Promise<Bank[]> {
@@ -24,6 +25,9 @@ async function getAllBanks(): Promise<Bank[]> {
 
     return banksData;
   } catch (error) {
+    if ((error as Error).name === 'AbortError') {
+      throw new TimeoutError('Tempo limite excedido ao buscar todos os bancos');
+    }
     if (error instanceof AppError) {
       throw error;
     } else {
