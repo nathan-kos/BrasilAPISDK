@@ -2,7 +2,7 @@ import { getBaseUrl, getTimeout } from '@src/shared/config/ApiConfig';
 import { AppError } from '@src/shared/exceptions/AppError';
 import { handleResponseError } from '@src/shared/exceptions/HandlerResponseError';
 import { ServerError } from '@src/shared/exceptions/ServerError';
-import { TimeoutError } from '@src/shared/exceptions/TimeOutError';
+import { TimeoutError } from '@src/shared/exceptions/TimeoutError';
 import { Bank } from '../entities/Bank';
 
 async function getAllBanks(): Promise<Bank[]> {
