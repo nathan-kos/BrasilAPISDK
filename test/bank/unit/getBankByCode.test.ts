@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { Bank, getBankByCode } from '@src/index';
 import { ServerError } from '@src/shared/exceptions/ServerError';
-import { TimeoutError } from '@src/shared/exceptions/TimeOutError';
+import { TimeoutError } from '@src/shared/exceptions/TimeoutError';
 import { describe, expect, it, vi } from 'vitest';
 
 describe('getBankByCode', () => {
