@@ -3,7 +3,8 @@ import { AppError } from '@src/shared/exceptions/AppError';
 import { handleResponseError } from '@src/shared/exceptions/HandlerResponseError';
 import { ServerError } from '@src/shared/exceptions/ServerError';
 import { TimeoutError } from '@src/shared/exceptions/TimeoutError';
-import { Currency } from '../entities/currency';
+import { Currency } from '../entities/Currency';
+import { CurrencySymbol } from '../entities/CurrencySymbol';
 
 async function getAllCurrency(): Promise<Currency[]> {
   const url = `${getBaseUrl()}/cambio/v1/moedas`;
@@ -23,7 +24,7 @@ async function getAllCurrency(): Promise<Currency[]> {
     }
 
     type RawCurrency = {
-      simbolo: string;
+      simbolo: CurrencySymbol;
       nome: string;
       tipo_moeda: string;
     };
