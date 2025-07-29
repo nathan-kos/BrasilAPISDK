@@ -1,15 +1,16 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 
 import { Currency, getAllCurrency } from '@src/index';
+import { CurrencySymbol } from '@src/modules/currency/entities/CurrencySymbol';
 import { ServerError } from '@src/shared/exceptions/ServerError';
 import { TimeoutError } from '@src/shared/exceptions/TimeoutError';
 import { describe, expect, it, vi } from 'vitest';
 
 describe('getAllCurrency - unit', () => {
   it('should return currency data correctly when fetch is successful', async () => {
-    const mockedRawCurrencies: { simbolo: string; nome: string; tipo_moeda: string }[] = [
+    const mockedRawCurrencies: { simbolo: CurrencySymbol; nome: string; tipo_moeda: string }[] = [
       {
-        simbolo: 'EUR',
+        simbolo: CurrencySymbol.EUR,
         nome: 'Euro',
         tipo_moeda: 'B',
       },
@@ -17,7 +18,7 @@ describe('getAllCurrency - unit', () => {
 
     const mockedCurrencies: Currency[] = [
       {
-        symbol: 'EUR',
+        symbol: CurrencySymbol.EUR,
         name: 'Euro',
         type: 'B',
       },
