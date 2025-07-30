@@ -54,8 +54,6 @@ async function GetExchangeByCurrencyAndDate(
 
     const exchangeData = (await response.json()) as RawExchange;
 
-    console.log('Exchange Data:', exchangeData);
-
     if (!exchangeData || !exchangeData.cotacoes || exchangeData.cotacoes.length === 0) {
       throw new BadRequestError('No exchange data found for the given currency and date');
     }
