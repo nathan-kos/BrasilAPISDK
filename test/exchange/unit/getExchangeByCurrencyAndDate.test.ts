@@ -64,4 +64,10 @@ describe('getExchangeByCurrencyAndDate - unit', () => {
       },
     );
   });
+
+  it('should throw BadRequestError if date is before 1984-11-28', async () => {
+    await expect(
+      GetExchangeByCurrencyAndDate(CurrencySymbol.EUR, new Date('1984-11-27')),
+    ).rejects.toThrow('Date must be after 28/11/1984');
+  });
 });
