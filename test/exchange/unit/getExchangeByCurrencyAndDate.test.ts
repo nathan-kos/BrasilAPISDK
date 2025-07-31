@@ -70,4 +70,31 @@ describe('getExchangeByCurrencyAndDate - unit', () => {
       GetExchangeByCurrencyAndDate(CurrencySymbol.EUR, new Date('1984-11-27')),
     ).rejects.toThrow('Date must be after 28/11/1984');
   });
+
+  it('should throw BadRequestError if date is invalid', async () => {
+    await expect(
+      GetExchangeByCurrencyAndDate(CurrencySymbol.EUR, new Date('invalid-date')),
+    ).rejects.toThrow('Invalid date provided');
+  });
+
+  it('should throw BadRequestError if no exchange data found', async () => {
+    const mockFetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: () => Promise.resolve({ cotacoes: [], moeda: 'EUR', data: '2022-01-01' }),
+    });
+
+    global.fetch = mockFetch;
+    await expect(
+      GetExchangeByCurrencyAndDate(CurrencySymbol.EUR, new Date('2022-01-01')),
+    ).rejects.toThrow('No exchange data found for the given currency and date');
+  });
+
+  it('should handle fetch errors gracefully', async () => {
+    const mockFetch = vi.fn().mockRejectedValue(new Error('Network error'));
+    global.fetch = mockFetch;
+
+    await expect(
+      GetExchangeByCurrencyAndDate(CurrencySymbol.EUR, new Date('2022-01-01')),
+    ).rejects.toThrow('Error fetching exchange data for the given currency and date');
+  });
 });
