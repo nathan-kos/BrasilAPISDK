@@ -1,5 +1,7 @@
+import { CurrencySymbol } from './CurrencySymbol';
+
 interface Currency {
-  symbol: string;
+  symbol: CurrencySymbol;
   name: string;
   type: string;
 }
