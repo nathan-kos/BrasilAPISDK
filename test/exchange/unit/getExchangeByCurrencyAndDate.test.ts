@@ -54,7 +54,6 @@ describe('getExchangeByCurrencyAndDate - unit', () => {
     global.fetch = mockFetch;
 
     const result = await GetExchangeByCurrencyAndDate(CurrencySymbol.EUR, new Date('2022-01-01'));
-    console.log(result); // For debugging purposes
     expect(result).toEqual(mockedExchangeData);
     expect(mockFetch).toHaveBeenCalledTimes(1);
     expect(mockFetch).toHaveBeenCalledWith(
