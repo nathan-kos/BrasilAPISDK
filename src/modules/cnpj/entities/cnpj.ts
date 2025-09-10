@@ -1,0 +1,58 @@
+import { Cnae } from './cnae';
+import { Qsa } from './qsa';
+import { CompanySize } from './size';
+import { taxRegime } from './taxregime';
+import { Uf } from './uf';
+
+interface Cnpj {
+  uf: Uf;
+  cep: string;
+  qsa: Qsa[] | null;
+  cnpj: string;
+  country?: string;
+  email?: string;
+  companySize: CompanySize;
+  neighborhood: string;
+  number: string;
+  dddFax?: string;
+  city: string;
+  address: string;
+  cnaeTax: number;
+  countryId?: number;
+  complement: string;
+  companySizeId: number;
+  companyName: string;
+  fantasyName: string;
+  socialCapital: number;
+  dddPhone1?: string;
+  dddPhone2?: string;
+  mei: boolean;
+  cityId?: number;
+  secondaryCnae?: Cnae[];
+  legalNature: string;
+  taxRegime: taxRegime[];
+  specialSituation?: string;
+  simples: boolean;
+  registrationStatus: number;
+  meiOptionDate?: Date;
+  meiExcludedDate?: Date;
+  cnaeDescription?: string;
+  ibgeCityId?: number;
+  startDate: Date;
+  specialSituationDate?: Date;
+  simplesOptionDate?: Date;
+  registrationStatusDate?: Date;
+  exteriorCityName?: string;
+  legalNatureId?: number;
+  simplesExcludedDate?: Date;
+  reasonForRegistrationStatus?: number;
+  responsibleFederativeEntity?: string;
+  branchMatrixIdentifier?: number;
+  responsableQualification?: number;
+  descriptionRegistrationStatus?: string;
+  addressTypeDescription?: string;
+  descriptionReasonRegistrationStatus?: string;
+  descriptionIdentifierBranchMatrix?: string;
+}
+
+export { Cnpj };
