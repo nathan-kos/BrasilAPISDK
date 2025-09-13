@@ -1,8 +1,8 @@
+import { Uf } from '../../../shared/enums/uf';
 import { Cnae } from './cnae';
 import { Qsa } from './qsa';
 import { CompanySize } from './size';
 import { taxRegime } from './taxregime';
-import { Uf } from './uf';
 
 interface Cnpj {
   uf: Uf;

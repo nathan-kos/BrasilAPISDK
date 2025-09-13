@@ -3,10 +3,10 @@ import { AppError } from '@src/shared/exceptions/AppError';
 import { handleResponseError } from '@src/shared/exceptions/HandlerResponseError';
 import { ServerError } from '@src/shared/exceptions/ServerError';
 import { TimeoutError } from '@src/shared/exceptions/TimeoutError';
+import { Uf } from '../../../shared/enums/uf';
 import { AgeRange } from '../entities/agegroup';
 import { Cnpj } from '../entities/cnpj';
 import { CompanySize } from '../entities/size';
-import { Uf } from '../entities/uf';
 
 async function getCnpj(cnpj: string): Promise<Cnpj> {
   const cleanedCnpj = cnpj.replace(/\D/g, '');

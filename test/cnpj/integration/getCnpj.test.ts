@@ -1,6 +1,6 @@
 import { getCnpj } from '@src/index';
 import { CompanySize } from '@src/modules/cnpj/entities/size';
-import { Uf } from '@src/modules/cnpj/entities/uf';
+import { Uf } from '@src/shared/enums/uf';
 import { describe, expect, it } from 'vitest';
 
 describe('getCnpj', () => {
