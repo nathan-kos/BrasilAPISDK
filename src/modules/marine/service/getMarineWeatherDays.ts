@@ -4,6 +4,7 @@ import { AppError } from '@src/shared/exceptions/AppError';
 import { BadRequestError } from '@src/shared/exceptions/BadRequestError';
 import { handleResponseError } from '@src/shared/exceptions/HandlerResponseError';
 import { ServerError } from '@src/shared/exceptions/ServerError';
+import { TimeoutError } from '@src/shared/exceptions/TimeoutError';
 import { normalizer } from '@src/shared/utils/string/normalizer';
 import { Direction } from '../entitie/directions';
 import { MarineWeather } from '../entitie/marineWeather';
@@ -55,13 +56,12 @@ async function getMarineWeatherDays(code: number, dayNumbers: number): Promise<M
     return marineWeather;
   } catch (error) {
     if ((error as Error).name === 'AbortError') {
-      throw new Error('Tempo limite excedido');
+      throw new TimeoutError('Tempo limite excedido');
     }
 
     if (error instanceof AppError) {
-      throw new Error('Erro ao buscar o clima marinho');
+      throw error;
     } else {
-      console.log('Erro inesperado:', error);
       throw new ServerError('Erro ao buscar o clima marinho');
     }
   }
