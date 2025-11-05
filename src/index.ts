@@ -4,6 +4,7 @@ export * from './modules/city';
 export * from './modules/cnpj';
 export * from './modules/currency';
 export * from './modules/exchange';
+export * from './modules/marine';
 export * from './modules/weather';
 
 const hello = () => {
