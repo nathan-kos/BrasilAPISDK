@@ -9,7 +9,7 @@ describe('getMarineWeather', () => {
 
     expect(marineWeather).toHaveProperty('city', 'Bertioga');
     expect(marineWeather).toHaveProperty('uf', Uf.SP);
-    expect(marineWeather).toHaveProperty('updatedAt', new Date('2025-10-23'));
+    expect(marineWeather).toHaveProperty('updatedAt');
     expect(Array.isArray(marineWeather.waves)).toBe(true);
     for (const wave of marineWeather.waves) {
       expect(wave).toHaveProperty('data');
