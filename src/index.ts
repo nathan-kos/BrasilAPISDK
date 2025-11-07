@@ -6,6 +6,7 @@ export * from './modules/currency';
 export * from './modules/exchange';
 export * from './modules/marine';
 export * from './modules/weather';
+export * from './modules/weather-forecast';
 
 const hello = () => {
   return 'Olá do BrasilAPI SDK!';
