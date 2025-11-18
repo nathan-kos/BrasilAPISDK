@@ -5,6 +5,7 @@ export * from './modules/cnpj';
 export * from './modules/currency';
 export * from './modules/ddd';
 export * from './modules/exchange';
+export * from './modules/fipe';
 export * from './modules/holiday';
 export * from './modules/marine';
 export * from './modules/weather';
