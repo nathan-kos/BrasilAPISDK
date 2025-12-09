@@ -7,6 +7,7 @@ export * from './modules/ddd';
 export * from './modules/exchange';
 export * from './modules/fipe';
 export * from './modules/holiday';
+export * from './modules/ibge';
 export * from './modules/marine';
 export * from './modules/weather';
 export * from './modules/weather-forecast';
