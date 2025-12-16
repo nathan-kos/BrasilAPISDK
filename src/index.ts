@@ -10,6 +10,7 @@ export * from './modules/holiday';
 export * from './modules/ibge';
 export * from './modules/isbn';
 export * from './modules/marine';
+export * from './modules/ncm';
 export * from './modules/weather';
 export * from './modules/weather-forecast';
 
