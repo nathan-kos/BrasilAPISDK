@@ -4,6 +4,7 @@ export * from './modules/city';
 export * from './modules/cnpj';
 export * from './modules/currency';
 export * from './modules/ddd';
+export * from './modules/domain';
 export * from './modules/exchange';
 export * from './modules/fipe';
 export * from './modules/holiday';
