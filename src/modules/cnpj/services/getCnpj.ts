@@ -16,8 +16,6 @@ async function getCnpj(cnpj: string): Promise<Cnpj> {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), getTimeout());
 
-    console.log(url);
-
     const response = await fetch(url, {
       signal: controller.signal,
       headers: {

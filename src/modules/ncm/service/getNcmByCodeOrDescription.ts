@@ -12,8 +12,6 @@ async function getNcmByCodeOrDescription(query: string): Promise<NcmInfo[]> {
 
     const url = `${getBaseUrl()}/ncm/v1?search=${encodeURIComponent(query)}`;
 
-    console.log('Fetching NCM data from URL:', url);
-
     const response = await fetch(url, {
       signal: controller.signal,
     });
