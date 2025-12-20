@@ -23,7 +23,6 @@ async function getBrandsVehicleModel(
     clearTimeout(timeoutId);
 
     if (!response.ok) {
-      console.log('Response not ok:', response.status, response.statusText);
       await handleResponseError(response);
     }
 
