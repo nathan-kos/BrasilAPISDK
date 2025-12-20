@@ -23,8 +23,6 @@ async function getAirportWeaterByCode(icaoCode: string): Promise<Weather> {
 
     const w = (await response.json()) as rawWeather;
 
-    console.log(w);
-
     const weather: Weather = {
       ICAOCode: w.codigo_icao,
       updatedAt: new Date(w.atualizado_em),
