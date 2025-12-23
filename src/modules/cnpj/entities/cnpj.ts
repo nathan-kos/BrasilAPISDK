@@ -2,7 +2,7 @@ import { Uf } from '../../../shared/enums/uf';
 import { Cnae } from './cnae';
 import { Qsa } from './qsa';
 import { CompanySize } from './size';
-import { taxRegime } from './taxregime';
+import { TaxRegime } from './taxregime';
 
 interface Cnpj {
   uf: Uf;
@@ -30,7 +30,7 @@ interface Cnpj {
   cityId?: number;
   secondaryCnae?: Cnae[];
   legalNature: string;
-  taxRegime: taxRegime[];
+  taxRegime: TaxRegime[];
   specialSituation?: string;
   simples: boolean;
   registrationStatus: number;

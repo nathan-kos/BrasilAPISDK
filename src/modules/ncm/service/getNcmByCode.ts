@@ -3,8 +3,9 @@ import { AppError } from '@src/shared/exceptions/AppError';
 import { handleResponseError } from '@src/shared/exceptions/HandlerResponseError';
 import { ServerError } from '@src/shared/exceptions/ServerError';
 import { TimeoutError } from '@src/shared/exceptions/TimeoutError';
+import { NcmInfo } from '../entities/ncmInfo';
 
-async function getNcmByCode(code: string) {
+async function getNcmByCode(code: string): Promise<NcmInfo> {
   try {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), getTimeout());
