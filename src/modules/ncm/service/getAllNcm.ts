@@ -3,8 +3,9 @@ import { AppError } from '@src/shared/exceptions/AppError';
 import { handleResponseError } from '@src/shared/exceptions/HandlerResponseError';
 import { ServerError } from '@src/shared/exceptions/ServerError';
 import { TimeoutError } from '@src/shared/exceptions/TimeoutError';
+import { NcmInfo } from '../entities/ncmInfo';
 
-async function getAllNcm() {
+async function getAllNcm(): Promise<NcmInfo[]> {
   const url = `${getBaseUrl()}/ncm/v1`;
 
   try {
