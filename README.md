@@ -24,6 +24,11 @@ Este projeto tem como objetivo fornecer uma SDK (Software Development Kit) não 
 - [Clima Atual](#clima-atual)
 - [Previsão do tempo](#previsão-do-tempo)
 
+## instalação
+```
+npm install @intway/brasilapi-sdk
+```
+
 ## Configurações iniciais
 - Antes de utilizar a SDK, é recomendado a revisão e se necessário a alterações das configurações básicas da api, são elas: Url base e timeout
 - a configuração padrão é: 
