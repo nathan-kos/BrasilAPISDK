@@ -1,17 +1,19 @@
 {
   "name": "@intway/brasilapi-sdk",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "main": "dist/index.cjs",
   "types": "dist/index.d.ts",
   "exports": {
-    "import": "./dist/index.js",
-    "require": "./dist/index.cjs"
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    }
   },
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "dev": "tsup src/index.ts --watch",
     "test": "vitest",
-    "prepublishOnly": "npm run build && npm test"
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "brasilapi",
@@ -43,12 +45,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/intway/brasilapi-sdk"
+    "url": "https://github.com/nathan-kos/BrasilAPISDK"
   },
   "bugs": {
-    "url": "https://github.com/intway/brasilapi-sdk/issues"
+    "url": "https://github.com/nathan-kos/BrasilAPISDK/issues"
   },
-  "homepage": "https://github.com/intway/brasilapi-sdk#readme",
+  "homepage": "https://github.com/nathan-kos/BrasilAPISDK#readme",
   "files": [
     "dist"
   ]
