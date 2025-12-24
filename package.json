@@ -45,12 +45,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/intway/brasilapi-sdk"
+    "url": "https://github.com/nathan-kos/BrasilAPISDK"
   },
   "bugs": {
-    "url": "https://github.com/intway/brasilapi-sdk/issues"
+    "url": "https://github.com/nathan-kos/BrasilAPISDK/issues"
   },
-  "homepage": "https://github.com/intway/brasilapi-sdk#readme",
+  "homepage": "https://github.com/nathan-kos/BrasilAPISDK#readme",
   "files": [
     "dist"
   ]
